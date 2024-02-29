@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{url_for('static', filename='images/LOGO.png')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
+    <title>INICIAR SESION</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+    * {
+        margin: 0;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    body {
+        display: flex;
+        margin-top: 100px;
+        background-image: url("{{url_for('static', filename='images/fondo.png')}}");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        margin-left: 10px;
+        margin-bottom: 20px;
+        width: 300px;
+        padding: 40px;
+        background-color: white;
+        border-radius: 5px;
+
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    form input[type="text"],
+    form input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        outline: none;
+        box-shadow: 1px 1px 1px #b8b6b6;
+    }
+
+    form input[type="submit"] {
+        margin-top: 10px;
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+
+    form input[type="submit"]:hover {
+        background-color: #555;
+    }
+
+    form select {
+        width: 105%;
+        padding: 10px;
+        margin-bottom: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        outline: none;
+        box-shadow: 1px 1px 1px #b8b6b6;
+        text-align: center;
+    }
+
+    form a {
+        color: black;
+        text-decoration: none;
+        font-size: 10px;
+        margin-top: 40px;
+        margin-left: 150px;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #333;
+
+        height: 67px;
+        width: 100%;
+    }
+
+    .accesos {
+        display: flex;
+        margin-right: 50px;
+        margin-top: -30px;
+        justify-content: right;
+    }
+
+    .accesos-items:hover {
+        cursor: pointer;
+        font-size: 20px;
+        color: gray;
+        background-color: black;
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    .accesos-items {
+        margin: 5px;
+        text-decoration: none;
+        color: white;
+        text-align: right;
+        margin-top: -2px;
+    }
+
+    header img {
+        margin-top: 10px;
+        margin-left: 10px;
+        width: 3%;
+    }
+</style>
+<header>
+    <a href="/"><img src="{{url_for('static', filename='images/LOGO.png')}}" alt="LOGO"></a>
+    <div class="accesos">
+        <a href="/registro" class="accesos-items">REGISTARSE</a>
+    </div>
+</header>
+
+<body>
+    <form action="/login" method="post">
+        <label for="">tipo de documento</label>
+        <select name="Documento">
+            <option value="CC" name="Documento">Cedula de Ciudadania</option>
+            <option value="TI" name="Documento">Tarjeta de identidad</option>
+        </select>
+        <label for="">Numero de documento</label>
+        <input type="text" name="ndocumento" autocomplete="off">
+        <label for="">contraseña</label>
+        <input type="password" name="password" placeholder="*******" autocomplete="off">
+        <input type="submit" value="INICIAR SESION">
+
+        <a href="/fpassword">¿OLVIDASTE TU CONTRASEÑA?</a>
+    </form>
+    <script>
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
+    </script>
+</body>
+
+</html>

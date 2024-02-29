@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 25px;
+        padding: 50px;
+    }
+
+    .regsitro-cliente {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: -10px;
+
+    }
+</style>
+
+<body>
+    <div class="regsitro-cliente">
+        <form action="/gregistro" method="post">
+            <label for="">Nombre Completo</label>
+            <input type="text" name="Nombre" autocomplete="off">
+            <label for="">Fecha de nacimiento</label>
+            <input type="date" name="fecha">
+            <label for="">Tipo DE Documento</label>
+            <select name="Documento">
+                <option value="CC" name="Documento">Cedula de Ciudadania</option>
+                <option value="TI" name="Documento">Tarjeta de identidad</option>
+            </select>
+            <label for="">Numero de Documento</label>
+            <input type="number" name="numero" autocomplete="off">
+            <label for="">pin</label>
+            <input type="password" name="pin" autocomplete="off">
+            <label for="">contraseña</label>
+            <input type="password" name="password" autocomplete="off">
+            <label for=""> repetir contraseña</label>
+            <input type="password" name="rpassword" autocomplete="off">
+            <input type="submit" value="REGISTARSE">
+        </form>
+    </div>
+
+    <script>
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
+    </script>
+</body>
+
+</html>
